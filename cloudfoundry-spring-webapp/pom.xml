@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>de.msg.xt</groupId>
+	<artifactId>cloudfoundry-spring-webapp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>cloudfoundry-spring-webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>de.thinkenterprise.spring.Application</start-class>
+	</properties>
+
+
+	<!-- Spring Boot < 1.2 Running under JEE 6 and Tomcat 7 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-parent</artifactId>
+		<version>1.1.6.RELEASE</version>
+	</parent>
+
+	<dependencies>
+
+		<!-- Release the Web Module -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+	</dependencies>
+	
+	
+	<!-- Repositories -->
+	
+	<repositories>
+		<!-- Prefer Release Repositories form Spring IO -->
+		<repository>
+			<id>spring-repo</id>
+			<name>Spring Repository</name>
+			<url>http://repo.spring.io/release</url>
+		</repository>
+
+	</repositories>
+
+	<!-- Plugins  -->
+	<build>
+		<plugins>
+		
+			<!-- Spring IO Boot Plugin-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			
+				<!-- Repackage to create executable jar,wars with libs ....-->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				
+				<!-- Create Manifest with the right main class-->
+				<configuration>
+					<mainClass>de.thinkenterprise.spring.Application</mainClass>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+
+</project>
