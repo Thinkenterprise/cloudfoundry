@@ -1,0 +1,8 @@
+---
+applications:
+  - name: cloudfoundry-spring-webapp
+    buildpack: java_buildpack
+    path: target/cloudfoundry-spring-webapp-0.0.1-SNAPSHOT.war
+    services:
+      - sqldb
+      

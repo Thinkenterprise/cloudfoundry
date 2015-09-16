@@ -11,13 +11,14 @@
 	<name>cloudfoundry-spring-webapp</name>
 	<url>http://maven.apache.org</url>
 
+
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>de.thinkenterprise.spring.Application</start-class>
+		 <java.version>1.8</java.version>
+		<start-class>de.msg.xt.cloudfoundry.webapp.Application</start-class>
 	</properties>
 
 
-	<!-- Spring Boot < 1.2 Running under JEE 6 and Tomcat 7 -->
+	<!-- Spring Boot < 1.2.0 Running under JEE 6 and Tomcat 7 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-parent</artifactId>
@@ -31,7 +32,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		
+		<!-- Release the Data Jpa Module -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<!-- Release the In Memory Database for test -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			
+		</dependency>
+		
+		
 	</dependencies>
 	
 	
@@ -67,7 +82,7 @@
 				
 				<!-- Create Manifest with the right main class-->
 				<configuration>
-					<mainClass>de.thinkenterprise.spring.Application</mainClass>
+					<mainClass>de.msg.xt.cloudfoundry.webapp.Application</mainClass>
 				</configuration>
 
 			</plugin>
