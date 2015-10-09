@@ -1,8 +1,8 @@
 package de.msg.xt.cloudfoundry.webapp;
 
-
-
 import java.util.Random;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.msg.xt.cloudfoundry.webapp.domain.product.Product;
 import de.msg.xt.cloudfoundry.webapp.domain.product.ProductRepository;
+
+/**  
+* Spring Projections Samples 
+* Design and Development by msg Applied Technology Research
+* Copyright (c) 2015 msg systems ag (http://www.msg-systems.com/)
+* All Rights Reserved.
+* 
+* @author Michael Schäfer 
+*/
 
 @RestController
 @RequestMapping("/products")
@@ -40,6 +49,14 @@ public class Application {
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<Iterable<Product>> getAll() {		
 		return new ResponseEntity<Iterable<Product>>(productRepository.findAll(), HttpStatus.OK);
+	}
+	
+	
+	@PostConstruct
+	public void init() {
+		productRepository.save(new Product("Test1"));
+		productRepository.save(new Product("Test2"));
+		productRepository.save(new Product("Test3"));
 	}
 	
 	

@@ -4,6 +4,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**  
+* Spring Projections Samples 
+* Design and Development by msg Applied Technology Research
+* Copyright (c) 2015 msg systems ag (http://www.msg-systems.com/)
+* All Rights Reserved.
+* 
+* @author Michael Schäfer 
+*/
+
 @MappedSuperclass
 public class AbstractEntity {
 
